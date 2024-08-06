@@ -1,5 +1,12 @@
-"scripts": {
-  "build": "npm run build:css && npm run build:js",
-  "build:css": "node-sass src/scss/main.scss dist/css/main.css",
-  "build:js": "webpack --config webpack.config.js"
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "webpack"
+  }
 }
+
