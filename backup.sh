@@ -7,6 +7,7 @@ DB_PASS="password"
 BACKUP_DIR="/path/to/backup"
 DATE=$(date +%F)
 
+mkdir -p "$BACKUP_DIR"
 # Create backup
 mysqldump -u $DB_USER -p$DB_PASS $DB_NAME > $BACKUP_DIR/$DB_NAME-$DATE.sql
 
