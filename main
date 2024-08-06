@@ -1,0 +1,27 @@
+name: WordPress CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          # Install Node.js, npm, and other dependencies
+          # Build your theme assets (SCSS & JS) here
+
+      - name: Deploy to server
+        run: |
+          # Use Rsync or Git to deploy your application
+          # Example Rsync command:
+          # rsync -avz --delete --exclude='.git' ./ user@your-server:/path/to/wordpress
+
+      # Add any additional steps (tests, etc.) as needed
