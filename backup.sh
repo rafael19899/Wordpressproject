@@ -11,4 +11,4 @@ DATE=$(date +%F)
 mysqldump -u $DB_USER -p$DB_PASS $DB_NAME > $BACKUP_DIR/$DB_NAME-$DATE.sql
 
 # Optional: Remove old backups
-find $BACKUP_DIR/* -mtime +30 -delete
+#find $BACKUP_DIR/* -mtime +30 -delete
