@@ -1,0 +1,5 @@
+"scripts": {
+  "build": "npm run build:css && npm run build:js",
+  "build:css": "node-sass src/scss/main.scss dist/css/main.css",
+  "build:js": "webpack --config webpack.config.js"
+}
