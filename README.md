@@ -59,4 +59,4 @@ Handling SSL renewal and termination.
 Repository
 The GitHub repository containing the CI/CD pipeline configuration and scripts can be found here.
 
-
+cache-dependency-path: 'Wordpressproject/package-lock.json'
