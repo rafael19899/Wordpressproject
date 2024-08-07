@@ -25,6 +25,20 @@ jobs:
 
     - name: Build assets
       run: npm run build
+      
+    - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies and generate yarn.lock
+        run: yarn install
+
+      - name: Commit and push yarn.lock
+        run: |
+          git config --global user.name 'rafael19899'
+          git config --global user.email 'rafael_alberto100@hotmail.com'
+          git add yarn.lock
+          git commit -m 'Generate yarn.lock file'
+          git push
 
     - name: Deploy to server
       env:
