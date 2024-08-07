@@ -1,9 +1,9 @@
 # Wordpressproject
 this is a Wordpress test project
 
-# WordPress CI/CD Deployment Project
+# WordPress CI/CD Deployment ROADMAP Project
 
-This repository project  process for a default WordPress project using CI/CD pipelines. The deployment process is automated using GitHub Actions, and includes building theme assets, deploying the application to a cloud server, and automating database backups.
+This repository project  process for a default WordPress project using CI/CD pipelines. The deployment process is automated using GitHub Actions, and includes building theme assets, deploying the application to a cloud server, best practices for Nginx, and automating database backups.
 
 ## Table of Contents
 - Project Overview
