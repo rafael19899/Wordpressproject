@@ -16,7 +16,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '20'
            cache: 'npm'
         cache-dependency-path: 'Wordpressproject/package-lock.json' 
 
@@ -31,6 +31,10 @@ jobs:
 
       - name: Install dependencies and generate yarn.lock
         run: yarn install
+
+       name: Install dependencies
+      run: npm ci  # Use 'npm ci' for clean install using package-lock.json
+        
 
       - name: Commit and push yarn.lock
         run: |
