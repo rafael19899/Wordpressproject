@@ -21,6 +21,35 @@ Use Rsync or Git to deploy the application to the cloud server.
 Backup Script
 A bash script is provided to automate the process of taking regular backups of the MySQL database. The script is customizable and can be run manually or scheduled using a cron job.
 
+Create a new server block configuration file in /etc/nginx/sites-available/your_domain:
+
+server {
+    listen 80;
+    server_name your_domain.com www.your_domain.com;
+
+    root /var/www/your_domain;
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+
+ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
+nginx -t
+
+apt-get install certbot python3-certbot-nginx
+certbot --nginx -d your_domain.com -d www.your_domain.com
+
 Server Configuration (Optional)
 Documentation is provided for configuring Nginx to host the WordPress application. This includes:
 
