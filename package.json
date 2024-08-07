@@ -1,14 +1,20 @@
-
-{
-  "name": "my-project",
+ {
+  "name": "wordpress-project",
   "version": "1.0.0",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
+  "description": "A default WordPress project",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "webpack"
-  }
-  
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "node-sass Wordpressproject/src/scss/main.scss dist/css/main.css",
+    "build:js": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "node-sass": "^6.0.1",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }
 
