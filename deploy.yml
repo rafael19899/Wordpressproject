@@ -17,16 +17,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '14'
-        
-      - run: npm ci
-        working-directory: ./server
-        
-          cache: 'npm'
-          run: npm ci
-      - run: npm test
-          cache-dependency-path: ./server # Specify the correct path
-        
-        
+
     - name: Install dependencies
       run: npm install
 
@@ -36,8 +27,8 @@ jobs:
     - name: Deploy to server
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        SERVER: ${{ secrets.SERVER }}
-        USER: ${{ secrets.USER }}
+        SERVER_USER: ${{ secrets.SERVER_USER }}
+        SERVER_IP: ${{ secrets.SERVER_IP }}
       run: |
         echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
-        rsync -avz --delete-after --exclude 'node_modules' ./ $USER@$SERVER:/path/to/wordpress
+        rsync -avz --exclude 'node_modules' --exclude '.git' . $SERVER_USER@$SERVER_IP:/path/to/your/project
